@@ -1,8 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const { createSurvey, updateParticipants } = require('../controllers/surveyController');
-
+const { createSurvey, updateParticipants, updateScheduling, publishSurvey, getSurveyById } = require('../controllers/surveyController');
 router.post('/', createSurvey);
 router.put('/:id/participants', updateParticipants);
-
+router.put('/:id/scheduling', updateScheduling);
+router.get('/scheduling-test', (req, res) => {
+  res.send('Scheduling route connected');
+});
+router.get('/:id', getSurveyById);
+router.put('/:id/publish', publishSurvey);
 module.exports = router;

@@ -16,21 +16,23 @@ app.use(express.json());
 app.use(cors());
 
 // Route imports
-const taskRoutes = require('./routes/taskRoutes'); // Your To-Do feature
-const surveyRoutes = require('./routes/surveyRoutes'); // Survey config (title, scheduling, etc)
-const questionRoutes = require('./routes/questionRoutes'); // Handles adding questions to surveys
+const taskRoutes = require('./routes/taskRoutes');         // (optional) To-Do tasks
+const surveyRoutes = require('./routes/surveyRoutes');     // Survey creation, config, publishing
+const questionRoutes = require('./routes/questionRoutes'); // Survey questions
+const responseRoutes = require('./routes/responseRoutes'); // User submissions + analytics
 
-// Route mounting
+// Mount routes
 app.use('/api/tasks', taskRoutes);
 app.use('/api/surveys', surveyRoutes);
-app.use('/api/surveys', questionRoutes); // Still under /api/surveys since questions are scoped to surveys
+app.use('/api/surveys', questionRoutes);   // questions are scoped under a survey
+app.use('/api/surveys', responseRoutes);   // responses & analytics also scoped under surveys
 
-// Health check route
+// Health check
 app.get('/', (req, res) => {
   res.send('API is running...');
 });
 
-// Server start
+// Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
