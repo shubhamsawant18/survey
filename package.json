@@ -1,6 +1,7 @@
 {
   "name": "todo-app",
   "version": "1.0.0",
+  "description": "A full-stack Todo app with React frontend and Node.js/Express backend",
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
@@ -9,20 +10,29 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shubhamsawant18/todo.git"
+    "url": "https://github.com/shubhamsawant18/todo.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "todo",
+    "mern",
+    "fullstack",
+    "react",
+    "express",
+    "node",
+    "mongodb"
+  ],
+  "author": "Shubham R Sawant",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/shubhamsawant18/todo/issues"
   },
   "homepage": "https://github.com/shubhamsawant18/todo#readme",
-  "description": "",
   "dependencies": {
     "chart.js": "^4.5.0",
-    "concurrently": "^9.1.2",
     "react-chartjs-2": "^5.3.0",
     "react-router-dom": "^7.6.2"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
   }
 }

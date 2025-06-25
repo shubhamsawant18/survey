@@ -1,0 +1,30 @@
+.survey-list-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.view-btn {
+  background: #007bff;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border: none;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.survey-list {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1rem;
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+.survey-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 10px;
+  background: #f9f9f9;
+  text-align: left;
+}
