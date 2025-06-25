@@ -9,7 +9,6 @@ const {
   getAllSurveys
 } = require('../controllers/surveyController');
 
-// Survey operations
 router.post('/', createSurvey);
 router.put('/:id/participants', updateParticipants);
 router.put('/:id/scheduling', updateScheduling);

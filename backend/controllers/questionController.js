@@ -4,6 +4,7 @@ const Survey = require('../models/Survey');
 exports.addQuestionsToSurvey = async (req, res) => {
   try {
     const { id } = req.params;
+
     if (!Array.isArray(req.body.questions) || req.body.questions.length === 0) {
       return res.status(400).json({ error: "No questions provided" });
     }
@@ -24,7 +25,7 @@ exports.addQuestionsToSurvey = async (req, res) => {
 
     res.status(201).json(survey);
   } catch (error) {
-    console.error('❌ Error in addQuestionsToSurvey:', error);
+    console.error('❌addQuestionsToSurvey error:', error);
     res.status(500).json({ error: "Failed to add questions" });
   }
 };

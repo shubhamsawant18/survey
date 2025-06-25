@@ -5,17 +5,15 @@ const Questions = ({ title, setTitle, questions, setQuestions }) => {
   const [selectedIndex, setSelectedIndex] = useState(null);
 
   const addQuestion = (type) => {
-    const newQ = {
-      id: Date.now(),
-      text: '',
-      type,
-      options: [''],
-      required: true
-    };
-    setQuestions([...questions, newQ]);
-    setSelectedIndex(questions.length);
+  const newQ = {
+    id: Date.now(),
+    text: '',
+    type, // ← THIS value needs to match the Mongoose enum
+    options: [],
+    required: true
   };
-
+  setQuestions([...questions, newQ]);
+};
   const updateQuestion = (field, value) => {
     const updated = [...questions];
     updated[selectedIndex][field] = value;
