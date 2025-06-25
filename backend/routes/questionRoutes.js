@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { addQuestionsToSurvey } = require('../controllers/questionController');
 
-router.put('/:id/questions', addQuestionsToSurvey);
+// Attach questions to a survey
+router.post('/:id/questions', addQuestionsToSurvey);
 
 module.exports = router;
