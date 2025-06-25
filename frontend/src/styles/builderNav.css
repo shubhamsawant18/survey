@@ -1,0 +1,59 @@
+.builder-wrapper {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.step-tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #eee;
+}
+
+.tab {
+  padding: 0.8rem 1.2rem;
+  font-weight: 500;
+  color: #777;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+}
+
+.tab.active {
+  color: #007bff;
+  border-color: #007bff;
+  font-weight: bold;
+}
+
+.step-body {
+  margin-bottom: 2rem;
+}
+
+.step-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.step-nav button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.step-nav button:hover {
+  background-color: #0056b3;
+}
+
+.step-nav button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

@@ -1,35 +1,22 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import TaskForm from './components/TaskForm';
-import TaskList from './components/TaskList';
-
-const BASE_URL = process.env.REACT_APP_API_URL;
+import SurveyBuilderContainer from './components/SurveyBuilder/SurveyBuilderContainer';
 
 const App = () => {
-  const [tasks, setTasks] = useState([]);
-
-  const fetchTasks = async () => {
-    try {
-      const response = await axios.get(`${BASE_URL}/api/tasks`);
-      setTasks(response.data);
-    } catch (error) {
-      console.error('Error fetching tasks:', error);
-    }
-  };
-
-  useEffect(() => {
-    fetchTasks();
-  }, []);
-
   return (
-    <div className="app-background">
-      <Navbar />
-      <div className="main-container">
-        <TaskForm refreshTasks={fetchTasks} />
-        <TaskList tasks={tasks} refreshTasks={fetchTasks} />
-      </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/create" element={<SurveyBuilderContainer />} />
+        <Route
+          path="*"
+          element={
+            <div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
+              Page not found. Go to <a href="/create">/create</a> to build a survey.
+            </div>
+          }
+        />
+      </Routes>
+    </Router>
   );
 };
 

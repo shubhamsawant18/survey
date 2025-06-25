@@ -11,17 +11,22 @@ exports.createSurvey = async (req, res) => {
   }
 };
 
+const Survey = require('../models/surveyModel');
+
 exports.updateParticipants = async (req, res) => {
   try {
-    const { id } = req.params;
+    const surveyId = req.params.id;
+    const { participants } = req.body;
+
     const survey = await Survey.findByIdAndUpdate(
-      id,
-      { participants: req.body.participants },
+      surveyId,
+      { participants },
       { new: true }
     );
-    res.json(survey);
-  } catch (error) {
-    res.status(500).json({ error: "Failed to update participants" });
+
+    res.status(200).json(survey);
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to update participants', error: err.message });
   }
 };
 exports.updateScheduling = async (req, res) => {
@@ -56,5 +61,13 @@ exports.getSurveyById = async (req, res) => {
     res.json(survey);
   } catch (error) {
     res.status(404).json({ error: "Survey not found" });
+  }
+};
+exports.getAllSurveys = async (req, res) => {
+  try {
+    const surveys = await Survey.find({ isPublished: true }); // only published
+    res.json(surveys);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch surveys" });
   }
 };
